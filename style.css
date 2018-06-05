@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+nav {
+  background-color: #5d1c63;
+  color: #ddd;
+}
+
+.menu-sub {
+  background: #000;
+  cursor: pointer;
+  padding: 1em;
+  display: block;
+  text-align: right;
+}
+
+#ToggleHetMenu {
+  display: none;
+}
+
+#ToggleHetMenu:checked ~ ul a {
+
+  font-size: 1em;
+  height: 1em;
+  line-height: 1em;
+  transform: scaleY(1);
+  border-bottom: 1px solid #eee;
+}
+
+#ToggleHetMenu:checked ~ .menu-sub .fa-times {
+  display: block;
+}
+
+#ToggleHetMenu:checked ~ .menu-sub .fa-bars {
+  display: none;
+}
+
+
+/* het menu verbergen */
+.fa-times {
+  display: none;
+}
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  color: #eee;
+  text-decoration: none;
+  padding: 1em;
+  border-bottom: 0 solid #eee;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  transform: scaleY(0);
+  transition: all 0.7s ease-out;
+}
+
+nav a:hover {
+  color: #fff;
+  background: #000;
+}
+
+.lijst ul {
+  padding-left: .5em;
+  border-left: 5px double #ddd;
+}
+
+/* het submenu verbergen */
+#nav .lijst li a {
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  transform: scaleY(0);
+  border-bottom-width: 0;
+  transition: all .5s ease-out;
+}
+/* het submenu tonen bij een hover */
+#nav .lijst:hover li a {
+  font-size: 1em;
+  height: 1em;
+  line-height: 1em;
+  transform: scaleY(1);
+  border-bottom-width: 1px;
+}
+
+.lijst > a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.lijst > a:hover {
+  content: "\f150";
+}
+
+@media screen and (min-width:40em){
+  nav>ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  }
+  .menu-sub {
+    display: none;
+  }
+  nav a {
+    font-size: 1em;
+    height: 1em;
+    line-height: 1em;
+    transform: scaleY(1);
+  }
+
+  .lijst {
+    position: relative;
+  }
+
+  .lijst ul {
+    position: absolute;
+    border-left: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .lijst a {
+    background-color: #5d1c63;
+  }
+
+  nav>ul>li:not(:first-child)>a {
+    border-left: 10px solid #eee;
+  }
+
+
+}
